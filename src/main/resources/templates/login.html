@@ -1,91 +1,157 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Dashboard-Login</title>
 </head>
 <body>
 <div class="container">
-    <form action="/login" th:action="@{/login}" method="post" name="form" class="box">
-        <h4>Stock Dashboard</h4>
-        <br>
-        <input type="text" name="username" placeholder="Username" >
-        <input type="password" name="password" placeholder="Password" id="pwd" >
-        <input type="submit" value="Sign in" class="btn">
+    <div class="button-box">
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn" onclick="login()">Login</button>
+        <button type="button" class="toggle-btn" onclick="register()">Register</button>
+    </div>
+    <form action="/login" th:action="@{/login}" method="post" id="login" class="input-group">
+        <input type="text" class="input-field" name="username" placeholder="Username" required>
+        <input type="password" class="input-field" name="password" placeholder="Password" required>
+        <input type="checkbox" class="checking-box"><span>Remember password</span>
+        <input type="submit" value="Sign in" class="sub-btn">
     </form>
-    <style>
-        :root {
+    <form action="/register" th:action="@{/register}" method="post" id="register" class="input-group">
+        <input type="text" class="input-field" name="username" placeholder="Username" required>
+        <input type="email" class="input-field" name="email" placeholder="E-Mail" required>
+        <input type="password" class="input-field" name="password" placeholder="Password" required>
+        <input type="checkbox" class="checking-box" required><span>Agree to terms and conditions</span>
+        <input type="submit" value="Sign up" class="sub-btn">
+    </form>
+</div>
+            <script>
+                var x = document.getElementById("login");
+                var y = document.getElementById("register");
+                var z = document.getElementById("btn");
+                function register() {
+                    x.style.left = "-400px";
+                    y.style.left = "50px";
+                    z.style.left = "110px";
+                }
+                function login() {
+                    x.style.left = "50px";
+                    y.style.left = "450px";
+                    z.style.left = "0px";
+                }
+            </script>
+            <style>
+:root {
   --primary-color: #1d293f;
   --secondary-color: #141b2e;
   --third-color: #828999;
 }
 
-body, html {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--secondary-color);
-    padding: 0;
-    margin: 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+}
 
-  .container{
-    margin: 0;
-    top: 200px;
-    left: 50%;
-    position: absolute;
-    text-align: center;
-    transform: translateX(-50%);
-    background-color: var(--primary-color);
-    border-radius: 9px;
-    width: 400px;
-    height: 500px;
-  }
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--secondary-color);
+}
 
-  .box h4 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--third-color);
-    font-size: 18px;
-    margin-top:94px;;
-  }
+.container {
+  width: 380px;
+  height: 480px;
+  position: relative;
+  margin: 6% auto;
+  background: var(--primary-color);
+  padding: 5px;
+  color: var(--third-color);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
 
-  .box input[type = "text"],.box input[type = "password"] {
-    display: block;
-    margin: 20px auto;
-    background: var(--secondary-color);
-    border: 0;
-    border-radius: 5px;
-    padding: 14px 10px;
-    width: 320px;
-    outline: none;
-    color: var(--third-color);
-    -webkit-transition: all .2s ease-out;
-    -moz-transition: all .2s ease-out;
-    -ms-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out;
+input[type="text"], input[type="email"], input[type="password"] {
+  color: var(--third-color)
+}
 
-  }
-  ::-webkit-input-placeholder {
-    color: var(--third-color);
-  }
+.button-box {
+  width: 220px;
+  margin: 35px auto;
+  position: relative;
+  border-radius: 30px;
+}
 
-  .box input[type = "text"]:focus,.box input[type = "password"]:focus {
-    border: 1px solid var(--third-color);
-  }
+.toggle-btn {
+  padding: 10px 30px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+  color: var(--third-color);
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .btn {
-    border: 0;
-    background: var(--secondary-color);
-    color: var(--third-color);
-    border-radius: 100px;
-    width: 340px;
-    height: 49px;
-    font-size: 16px;
-    position: absolute;
-    top: 65%;
-    left: 8%;
-    transition: 0.3s;
-    cursor: pointer;
-  }
-    </style>
-</div>
+#btn {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: var(--secondary-color);
+  border-radius: 30px;
+  transition: .5s;
+}
+
+.input-group {
+  top: 180px;
+  position: absolute;
+  width: 280px;
+  transition: .5s;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid var(--third-color);
+  outline: none;
+  background: transparent;
+}
+
+.sub-btn {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: var(--secondary-color);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  color: var(--third-color);
+}
+
+.checking-box {
+  margin: 30px 10px 35px 0;
+}
+
+span {
+  font-size: 12px;
+  bottom: 68px;
+  position: absolute;
+}
+
+#login {
+  left: 50px;
+}
+#register {
+  left: 450px;
+}
+            </style>
 </body>
 </html>
