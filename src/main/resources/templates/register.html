@@ -2,20 +2,21 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Dashboard Login</title>
+        <title>Dashboard Register</title>
     </head>
     <body>
         <div class="container">
             <div class="button-box">
                 <div id="btn"></div>
-                <button type="button" class="toggle-btn" >Login</button>
-                <a href="/register"><button type="button" class="toggle-btn" >Register</button></a>
+                <a href="/login"><button type="button" class="toggle-btn" >Login</button></a>
+                <button type="button" class="toggle-btn" >Register</button>
             </div>
-            <form action="/login" th:action="@{/login}" method="post" id="login" class="input-group">
+            <form action="/register" th:action="@{/register}" method="post" id="register" class="input-group">
                 <input type="text" class="input-field" name="username" placeholder="Username" required>
+                <input type="email" class="input-field" name="email" placeholder="E-Mail" required>
                 <input type="password" class="input-field" name="password" placeholder="Password" required>
-                <input type="checkbox" class="checking-box"><span>Remember password</span>
-                <input type="submit" value="Sign in" class="sub-btn">
+                <input type="checkbox" class="checking-box" required><span>Agree to terms and conditions</span>
+                <input type="submit" value="Sign up" class="sub-btn">
             </form>
         </div>
         <style>
@@ -73,13 +74,13 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 #btn {
   top: 0;
-  left: 0;
+  right: 0;
   position: absolute;
   width: 110px;
   height: 100%;
-  background: var(--secondary-color);
   border-radius: 30px;
   transition: .5s;
+  background: var(--secondary-color);
 }
 
 .input-group {
@@ -124,7 +125,7 @@ span {
   position: absolute;
 }
 
-#login {
+#register {
   left: 50px;
 }
         </style>

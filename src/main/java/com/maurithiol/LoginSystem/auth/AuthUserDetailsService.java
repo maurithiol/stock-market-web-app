@@ -2,12 +2,14 @@ package com.maurithiol.LoginSystem.auth;
 
 import com.maurithiol.LoginSystem.config.SecurityBeansConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.Optional;
 
 @Service
@@ -28,12 +30,12 @@ public class AuthUserDetailsService implements UserDetailsService {
         if (!authUser.isPresent()) {
             throw new UsernameNotFoundException(username);
         } else {
-            return User.builder()
-                    .username(authUser.get().getUsername())
-                    .password(authUser.get().getPassword())
-                    .roles(authUser.get().getRole().name())
-                    .disabled(!authUser.get().isActive())
-                    .build();
+            return new AuthUserDetails(
+                    authUser.get().getUsername(),
+                    authUser.get().getEmail(),
+                    authUser.get().getPassword(),
+                    Collections.singleton(new SimpleGrantedAuthority(authUser.get().getRole().name()))
+            );
         }
     }
 

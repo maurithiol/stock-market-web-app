@@ -1,0 +1,43 @@
+:root {
+  --primary-color: #1d293f;
+  --secondary-color: #141b2e;
+  --third-color: #828999;
+}
+* {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+}
+body{
+  background: var(--secondary-color);
+}
+.sidebar{
+  background: var(--primary-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 100%;
+  padding: 20px 0;
+}
+.sidebar a {
+  display: block;
+  padding: 16px;
+  color: var(--third-color);
+}
+form button {
+  display: block;
+  padding: 16px;
+  width: 225px;
+  background-color: var(--primary-color);
+  color: var(--third-color);
+  border: 0px;
+  cursor: pointer;
+  font-size: 17px;
+  text-align: left;
+  transform: translateY(1000%);
+}

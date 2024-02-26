@@ -20,8 +20,13 @@ public class LoginSystemApplication {
 	/*@Bean
 	public CommandLineRunner runner(AuthUserRepository repository) {
 		return args -> {
-			AuthUser authUser = new AuthUser("0", "admin", new BCryptPasswordEncoder().encode("1234"), AuthRole.ADMIN,true);
-			repository.insert(authUser);
+			AuthUser user = new AuthUser();
+			user.setUsername("admin");
+			user.setEmail("maurithiol@gmail.com");
+			user.setPassword(new BCryptPasswordEncoder().encode("1234"));
+			user.setRole(AuthRole.ADMIN);
+			user.setActive(true);
+			repository.save(user);
 		};
 	}*/
 

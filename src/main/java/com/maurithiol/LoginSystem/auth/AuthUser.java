@@ -9,12 +9,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @Document("spring-security")
 @AllArgsConstructor
+@NoArgsConstructor
 public class AuthUser {
 
     @Id
     private String id;
     @Indexed
     private String username;
+    private String email;
     private String password;
     private AuthRole role;
     private boolean active;

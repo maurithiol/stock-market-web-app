@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Dashboard</title>
+    <link rel="stylesheet" th:href="@{~/css/dashboard_accounts.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+<div class="dash">
+    <h1>Accounts</h1>
+    <br>
+    <a href="/auth/dashboard/admin/accounts/new">add new account</a>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Username</td>
+                <td>Email</td>
+                <td>Password</td>
+                <td>Role</td>
+                <td>Active</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${userList}">
+                <td th:text="${user.id}">id</td>
+                <td th:text="${user.username}">id</td>
+                <td th:text="${user.email}">id</td>
+                <td th:text="${user.password}">id</td>
+                <td th:text="${user.role}">id</td>
+                <td th:text="${user.active}">id</td>
+                <td>
+                    <a th:href="@{'/auth/dashboard/admin/accounts/edit/' + ${user.id}}">Edit</a>
+                    &nbsp;
+                    <a th:href="@{'/auth/dashboard/admin/accounts/delete/' + ${user.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<style>
+    body {
+        color: grey;
+    }
+</style>
+</body>
+</html>

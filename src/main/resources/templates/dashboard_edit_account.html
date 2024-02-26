@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Dashboard</title>
+    <link rel="stylesheet" th:href="@{~/css/dashboard_new_account.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+<div class="dash">
+    <h1>Accounts</h1>
+    <br>
+    <h2>Update account</h2>
+    <br>
+    <form action="#" th:action="@{/auth/dashboard/admin/accounts/add}" th:object="${user}" method="post">
+        <table>
+            <tr>
+                <td>Id:</td>
+                <td><input type="text" th:field="*{id}" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" th:field="*{username}"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" th:field="*{email}"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="text" th:field="*{password}"></td>
+            </tr>
+            <tr>
+                <td>Role:</td>
+                <td><input type="text" th:field="*{role}"></td>
+            </tr>
+            <tr>
+                <td>Active:</td>
+                <td><input type="text" th:field="*{active}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Update</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
