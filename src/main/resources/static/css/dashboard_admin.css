@@ -14,7 +14,7 @@
   font-size: 15px;
 }
 
-body {
+body{
   background: var(--secondary-color);
 }
 
@@ -56,39 +56,4 @@ form button {
   cursor: pointer;
   font-size: 15px;
   text-align: center;
-}
-
-.dash {
-  color: gray;
-  height: 95%;
-  width: 70%;
-  position: relative;
-  margin: auto auto;
-  top: 90px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-th, td {
-  border: 3px solid var(--primary-color);
-  padding: 10px;
-  text-align: left;
-}
-
-thead {
-  background-color: var(--primary-color);
-}
-
-a {
-  text-decoration: none;
-  cursor: pointer;
-  color: var(--third-color);
-}
-
-h1 {
-  font-size: 45px;
 }

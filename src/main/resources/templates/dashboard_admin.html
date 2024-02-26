@@ -3,8 +3,8 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Stock Dashboard</title>
-    <link rel="stylesheet" th:href="@{~/css/dashboard_edit_account.css}" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{~/css/dashboard_admin.css}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
@@ -30,17 +30,7 @@
         </form>
     </ul>
 </div>
-<br>
 <div class="dash">
-    <form action="/auth/dashboard/admin/accounts/add" th:action="@{/auth/dashboard/admin/accounts/add}" class="input-group" id="save" th:object="${user}" method="post">
-        <input type="text" th:field="*{id}" class="input-field" readonly="readonly">
-        <input type="text" placeholder="Username" class="input-field" th:field="*{username}">
-        <input type="email" placeholder="Email" class="input-field" th:field="*{email}">
-        <input type="text" placeholder="Password" class="input-field" th:field="*{password}">
-        <input type="text" placeholder="Role" class="input-field" th:field="*{role}">
-        <input type="text" placeholder="Active" class="input-field" th:field="*{active}">
-        <input type="submit" value="Save" class="sub-btn">
-    </form>
 </div>
 </body>
 </html>

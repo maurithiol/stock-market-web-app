@@ -8,37 +8,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+<div class="sidebar">
+    <div class="logo"></div>
+    <ul class="main">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+        <li><a href="#"><i class="fas fa-user"></i><span>Profile</span></a></li>
+        <br>
+        <br>
+        <li><a href="#"><i class="fas fa-chart-bar"></i><span>Stocks</span></a></li>
+        <li><a href="#"><i class="fas fa-chart-bar"></i><span>Options</span></a></li>
+        <li><a href="#"><i class="fas fa-chart-bar"></i><span>Indices</span></a></li>
+        <li><a href="#"><i class="fas fa-chart-bar"></i><span>Currencies</span></a></li>
+        <br>
+        <br>
+        <li><a href="/auth/dashboard/admin/accounts"><i class="fas fa-cog"></i><span>Panel</span></a></li>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="">
+                <i class="fas fa-sign-out-alt"></i>
+                <span> Logout</span>
+            </button>
+        </form>
+    </ul>
+</div>
+<br>
 <div class="dash">
-    <h1>Accounts</h1>
-    <br>
-    <h2>Sign up account</h2>
-    <br>
-    <form action="#" th:action="@{/auth/dashboard/admin/accounts/add}" th:object="${user}" method="post">
-        <table>
-            <tr>
-                <td>Username:</td>
-                <td><input type="text" th:field="*{username}"></td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td><input type="email" th:field="*{email}"></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type="text" th:field="*{password}"></td>
-            </tr>
-            <tr>
-                <td>Role:</td>
-                <td><input type="text" th:field="*{role}"></td>
-            </tr>
-            <tr>
-                <td>Active:</td>
-                <td><input type="text" th:field="*{active}"></td>
-            </tr>
-            <tr>
-               <td colspan="2"><button type="submit">Save</button></td>
-            </tr>
-        </table>
+    <form action="/auth/dashboard/admin/accounts/add" th:action="@{/auth/dashboard/admin/accounts/add}" class="input-group" id="save" th:object="${user}" method="post">
+        <input type="text" placeholder="Username" class="input-field" th:field="*{username}">
+        <input type="email" placeholder="Email" class="input-field" th:field="*{email}">
+        <input type="text" placeholder="Password" class="input-field" th:field="*{password}">
+        <input type="text" placeholder="Role" class="input-field" th:field="*{role}">
+        <input type="text" placeholder="Active" class="input-field" th:field="*{active}">
+        <input type="submit" value="Save" class="sub-btn">
     </form>
 </div>
 </body>

@@ -40,9 +40,14 @@ public class LogHandler {
         return "redirect:/login";
     }
 
-    @GetMapping("/auth/dashboard")
-    public String showDashboard() {
-        return "dashboard";
+    @GetMapping("/auth/dashboard/user")
+    public String showUserDashboard() {
+        return "dashboard_user";
+    }
+
+    @GetMapping("/auth/dashboard/admin")
+    public String showAdminDashboard() {
+        return "dashboard_admin";
     }
 
 }
