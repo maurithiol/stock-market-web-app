@@ -3,47 +3,65 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Stock Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" th:href="@{~/css/dashboard_accounts.css}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+<div class="sidebar">
+    <div class="logo"></div>
+    <ul class="main">
+        <li><a href="/auth/dashboard/admin"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+        <li><a href=""><i class="fas fa-user"></i><span>Profile</span></a></li>
+        <br>
+        <br>
+        <li><a href=""><i class="fas fa-chart-bar"></i><span>Stocks</span></a></li>
+        <li><a href=""><i class="fas fa-chart-bar"></i><span>Options</span></a></li>
+        <li><a href=""><i class="fas fa-chart-bar"></i><span>Indices</span></a></li>
+        <li><a href=""><i class="fas fa-chart-bar"></i><span>Currencies</span></a></li>
+        <br>
+        <br>
+        <li><a href="/auth/dashboard/admin/accounts"><i class="fas fa-cog"></i><span>Panel</span></a></li>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="">
+                <i class="fas fa-sign-out-alt"></i>
+                <span> Logout</span>
+            </button>
+        </form>
+    </ul>
+</div>
 <div class="dash">
     <h1>Accounts</h1>
     <br>
-    <a href="/auth/dashboard/admin/accounts/new">add new account</a>
-    <table border="1" cellpadding="10">
+    <br>
+    <table>
         <thead>
-            <tr>
-                <td>Id</td>
-                <td>Username</td>
-                <td>Email</td>
-                <td>Password</td>
-                <td>Role</td>
-                <td>Active</td>
-            </tr>
+        <tr>
+            <td>Id</td>
+            <td>Username</td>
+            <td>Email</td>
+            <td>Password</td>
+            <td>Role</td>
+            <td>Active</td>
+            <td><a href="/auth/dashboard/admin/accounts/new">Create new</a></td>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="user : ${userList}">
-                <td th:text="${user.id}">id</td>
-                <td th:text="${user.username}">id</td>
-                <td th:text="${user.email}">id</td>
-                <td th:text="${user.password}">id</td>
-                <td th:text="${user.role}">id</td>
-                <td th:text="${user.active}">id</td>
-                <td>
-                    <a th:href="@{'/auth/dashboard/admin/accounts/edit/' + ${user.id}}">Edit</a>
-                    &nbsp;
-                    <a th:href="@{'/auth/dashboard/admin/accounts/delete/' + ${user.id}}">Delete</a>
-                </td>
-            </tr>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.id}">id</td>
+            <td th:text="${user.username}">id</td>
+            <td th:text="${user.email}">id</td>
+            <td th:text="${user.password}">id</td>
+            <td th:text="${user.role}">id</td>
+            <td th:text="${user.active}">id</td>
+            <td>
+                <a th:href="@{'/auth/dashboard/admin/accounts/edit/' + ${user.id}}">Edit</a>
+                &nbsp;
+                <a th:href="@{'/auth/dashboard/admin/accounts/delete/' + ${user.id}}">Delete</a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>
-<style>
-    body {
-        color: grey;
-    }
-</style>
 </body>
 </html>
