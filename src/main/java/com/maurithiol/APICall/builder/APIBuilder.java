@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class APIBuilder {
-    private final String PREFIX = "https://api.twelvedata.com";
     private final String API_KEY = "336b96ba9ef94136b1e2145aed989d98";
+    private String prefix;
     private List<APIArgs> args;
 
-    public APIBuilder() {
+    public APIBuilder(String prefix) {
+        this.prefix = prefix;
         this.args = new ArrayList<>();
     }
 
@@ -19,7 +20,7 @@ public class APIBuilder {
 
     public String toString() {
         StringBuilder result = new StringBuilder();
-        result.append(PREFIX);
+        result.append(prefix);
         result.append("&apikey=" + API_KEY);
         for (APIArgs arg : args) {
             result.append("&" + arg.getName() + "=" + arg.getValue());

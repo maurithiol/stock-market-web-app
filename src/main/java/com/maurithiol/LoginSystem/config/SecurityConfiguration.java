@@ -13,11 +13,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().antMatchers("/login", "/register", "/resources/**", "/homepage/**").permitAll()
+                .authorizeRequests().antMatchers("/login", "/register", "/resources/**", "/homepage/**")
+                .permitAll()
                 .antMatchers("/auth/dashboard/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/auth/dashboard/user/**").hasAuthority("USER")
                 .antMatchers("/**").authenticated()
-                .antMatchers("/**").authenticated()
+                .and().csrf().ignoringAntMatchers("/homepage") // Permet d'activer la barre de recherche
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -34,6 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll();
+
     }
 
 }
