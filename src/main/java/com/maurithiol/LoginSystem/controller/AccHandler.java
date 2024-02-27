@@ -36,7 +36,7 @@ public class AccHandler {
     public String addUser(AuthUser user) {
         user.setPassword(encoder.passwordEncoder().encode(user.getPassword()));
         repository.save(user);
-        return "redirect:/auth/dashboard/admin/accounts/";
+        return "redirect:/auth/dashboard/admin/accounts";
     }
 
     @RequestMapping("/auth/dashboard/admin/accounts/edit/{id}")

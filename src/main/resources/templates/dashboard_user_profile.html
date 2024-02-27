@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Stock Dashboard</title>
-    <link rel="stylesheet" th:href="@{~/css/dashboard_new_account.css}" />
+    <link rel="stylesheet" th:href="@{~/css/dashboard_user_profile.css}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
 <div class="sidebar">
     <div class="logo"></div>
     <ul class="main">
-        <li><a href="/auth/dashboard/admin"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-        <li><a href="/auth/dashboard/admin/profile"><i class="fas fa-user"></i><span>Profile</span></a></li>
+        <li><a href="/auth/dashboard/user"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+        <li><a href="/auth/dashboard/user/profile"><i class="fas fa-user"></i><span>Profile</span></a></li>
         <br>
         <br>
         <li><a href="#"><i class="fas fa-chart-bar"></i><span>Stocks</span></a></li>
@@ -21,7 +21,6 @@
         <li><a href="#"><i class="fas fa-chart-bar"></i><span>Currencies</span></a></li>
         <br>
         <br>
-        <li><a href="/auth/dashboard/admin/accounts"><i class="fas fa-cog"></i><span>Panel</span></a></li>
         <form th:action="@{/logout}" method="post">
             <button type="submit" class="">
                 <i class="fas fa-sign-out-alt"></i>
@@ -32,12 +31,11 @@
 </div>
 <br>
 <div class="dash">
-    <form action="/auth/dashboard/admin/accounts/add" th:action="@{/auth/dashboard/admin/accounts/add}" class="input-group" id="save" th:object="${user}" method="post">
+    <form action="/auth/dashboard/user/profile" th:action="@{/auth/dashboard/user/profile}" class="input-group" id="save" th:object="${profile}" method="post">
         <input type="text" placeholder="Username" class="input-field" th:field="*{username}">
         <input type="email" placeholder="Email" class="input-field" th:field="*{email}">
         <input type="text" placeholder="Password" class="input-field" th:field="*{password}">
-        <input type="text" placeholder="Role" class="input-field" th:field="*{role}">
-        <input type="text" placeholder="Active" class="input-field" th:field="*{active}">
+        <input type="text" placeholder="Role" class="input-field" th:field="*{role}" readonly="readonly">
         <input type="submit" value="Save" class="sub-btn">
     </form>
 </div>
