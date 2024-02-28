@@ -1,0 +1,120 @@
+:root {
+    --primary-color: #1d293f;
+    --secondary-color: #141b2e;
+    --third-color: #828999;
+  }
+
+  * {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+  }
+
+  body{
+    background: var(--secondary-color);
+  }
+
+  .sidebar {
+    background: var(--primary-color);
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar a, form button {
+    display: block;
+    padding: 22px;
+    color: var(--third-color);
+  }
+
+  .sidebar a i, form button i {
+    margin-right: 10px;
+  }
+
+  .logo {
+    height: 120px;
+    width: 120px;
+    background: var(--secondary-color);
+    margin: 50px;
+    border-radius: 100%;
+  }
+
+  form button {
+    display: block;
+    padding: 22px;
+    width: 120px;
+    background-color: var(--primary-color);
+    color: var(--third-color);
+    border: 0;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .dash {
+    top: 90px;
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    background: var(--primary-color);
+    padding: 5px;
+    color: var(--third-color);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  input[type="text"], input[type="email"], input[type="password"] {
+    color: var(--third-color)
+  }
+
+  .input-group {
+    top: 20%;
+    position: relative;
+    width: 280px;
+    transition: .5s;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--third-color);
+    outline: none;
+    background: transparent;
+  }
+
+  .sub-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: var(--secondary-color);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    color: var(--third-color);
+    position: relative;
+    top: 30px;
+  }
+
+  h1 {
+    font-size: 45px;
+    color: var(--third-color);
+    position: relative;
+    left: 10%;
+  }
+
+  #upload {
+    left: 50px;
+  }

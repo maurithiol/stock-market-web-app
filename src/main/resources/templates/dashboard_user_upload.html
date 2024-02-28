@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Dashboard</title>
+    <link rel="stylesheet" th:href="@{~/css/dashboard_upload.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+<div th:insert="sidebar_user :: user_sidebar_fragment">
+</div>
+<br>
+<div class="dash">
+    <form action="/auth/dashboard/user/profile/upload/go" th:action="@{/auth/dashboard/user/profile/upload/go}" class="input-group" method="post" enctype="multipart/form-data" id="upload">
+        <input type="file" class="input-field" name="file" />
+        <input type="submit" value="Upload" class="sub-btn">
+    </form>
+</div>
+</body>
+</html>

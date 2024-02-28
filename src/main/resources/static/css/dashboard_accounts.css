@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
 }
 
@@ -18,52 +18,13 @@ body {
   background: var(--secondary-color);
 }
 
-.sidebar {
-  background: var(--primary-color);
-  position: fixed;
-  width: 200px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sidebar a, form button {
-  display: block;
-  padding: 22px;
-  color: var(--third-color);
-}
-
-.sidebar a i, form button i {
-  margin-right: 10px;
-}
-
-.logo {
-  height: 120px;
-  width: 120px;
-  background: var(--secondary-color);
-  margin: 50px;
-  border-radius: 100%;
-}
-
-form button {
-  display: block;
-  padding: 22px;
-  width: 120px;
-  background-color: var(--primary-color);
-  color: var(--third-color);
-  border: 0;
-  cursor: pointer;
-  font-size: 15px;
-  text-align: center;
-}
-
 .dash {
   color: gray;
   height: 95%;
-  width: 70%;
+  width: 80%;
   position: relative;
-  margin: auto auto;
+  left: 125px;
+  margin: auto;
   top: 90px;
 }
 
@@ -83,12 +44,25 @@ thead {
   background-color: var(--primary-color);
 }
 
-a {
-  text-decoration: none;
-  cursor: pointer;
-  color: var(--third-color);
-}
-
 h1 {
   font-size: 45px;
+}
+
+@media screen and (max-width: 768px) {
+
+  .sidebar {
+    width: 100%;
+    height: 630px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 1310px) {
+  .dash {
+    display: none;
+  }
 }
