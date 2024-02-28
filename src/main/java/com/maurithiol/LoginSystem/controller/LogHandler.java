@@ -1,14 +1,20 @@
 package com.maurithiol.LoginSystem.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
+
+import com.maurithiol.APICall.data.DataList;
 import com.maurithiol.LoginSystem.auth.AuthRole;
 import com.maurithiol.LoginSystem.auth.AuthUser;
 import com.maurithiol.LoginSystem.auth.AuthUserRepository;
 import com.maurithiol.LoginSystem.config.SecurityBeansConfig;
+
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @AllArgsConstructor
@@ -29,7 +35,8 @@ public class LogHandler {
 
     @PostMapping("/register")
     public String register(@ModelAttribute("user") AuthUser user) {
-        if(repository.existsByUsername(user.getUsername())) return "redirect:/register";
+        if (repository.existsByUsername(user.getUsername()))
+            return "redirect:/register";
         AuthUser curr = new AuthUser();
         curr.setUsername(user.getUsername());
         curr.setEmail(user.getEmail());
@@ -50,4 +57,24 @@ public class LogHandler {
         return "dashboard_admin";
     }
 
+    @GetMapping("/homepage")
+    public String showHomePage() {
+        return "homepage";
+    }
+
+    @PostMapping("/homepage")
+    public String search(@RequestParam("search") String searchTerm, Model model) throws Exception {
+        String apiRequest = "https://api.twelvedata.com/symbol_search?symbol=";
+        apiRequest += searchTerm;
+        RestTemplate restTemplate = new RestTemplate();
+        DataList dataList = restTemplate.getForObject(apiRequest, DataList.class);
+
+        model.addAttribute("dataList", dataList.getData());
+        return "homepage";
+    }
+
+    @GetMapping("/stock/{symbol}")
+    public String showStockData() {
+        return "stock";
+    }
 }
