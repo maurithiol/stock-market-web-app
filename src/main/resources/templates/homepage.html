@@ -4,11 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Stock Dashboard</title>
-    <link rel="stylesheet" th:href="@{~/css/dashboard.css}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
-
-<body>
     <style>
         * {
             box-sizing: border-box;
@@ -100,7 +96,7 @@
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
             <div class="search-container" autocomplete="off">
-                <form action="/homepage" method="post" autocomplete="off">
+                <form action="/homepage" th:action="@{/homepage}" method="post" autocomplete="off">
                     <input type="text" placeholder="Search.." name="search" autocomplete="off">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>

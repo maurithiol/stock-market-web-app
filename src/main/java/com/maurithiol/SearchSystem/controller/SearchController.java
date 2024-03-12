@@ -14,4 +14,5 @@ public class SearchController {
         model.addAttribute("searchResult", searchResult);
         return "homepage";
     }
+
 }

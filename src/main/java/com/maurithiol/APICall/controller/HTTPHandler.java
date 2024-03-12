@@ -14,7 +14,7 @@ public class HTTPHandler {
         return "homepage";
     }
 
-    @GetMapping("/stock/{symbol}")
+    @GetMapping("/homepage/stock/{symbol}")
     public String showStockData() {
         return "stock";
     }
