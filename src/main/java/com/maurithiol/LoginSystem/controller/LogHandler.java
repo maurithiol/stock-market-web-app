@@ -70,8 +70,4 @@ public class LogHandler {
         return "homepage";
     }
 
-    @GetMapping("/homepage/stock/{symbol}")
-    public String showStockData(@PathVariable("symbol") String symbol, Model model) {
-        return "stock";
-    }
 }
