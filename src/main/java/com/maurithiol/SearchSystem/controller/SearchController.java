@@ -13,6 +13,7 @@ public class SearchController {
         String searchResult = "Vous avez recherché : " + searchTerm;
         model.addAttribute("searchResult", searchResult);
         return "homepage";
+
     }
 
 }

@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class HTTPHandler {
 
+
     @GetMapping("/homepage")
     public String showHomePage() {
         return "homepage";
