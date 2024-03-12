@@ -98,6 +98,7 @@
             <div class="search-container" autocomplete="off">
                 <form action="/homepage" th:action="@{/homepage}" method="post" autocomplete="off">
                     <input type="text" placeholder="Search.." name="search" autocomplete="off">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
