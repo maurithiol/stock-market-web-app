@@ -65,7 +65,6 @@ public class LogHandler {
         apiRequest += searchTerm;
         RestTemplate restTemplate = new RestTemplate();
         DataList dataList = restTemplate.getForObject(apiRequest, DataList.class);
-
         model.addAttribute("dataList", dataList.getData());
         return "homepage";
     }
