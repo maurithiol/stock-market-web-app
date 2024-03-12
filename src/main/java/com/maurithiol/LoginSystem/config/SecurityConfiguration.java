@@ -18,7 +18,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/auth/dashboard/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/auth/dashboard/user/**").hasAuthority("USER")
                 .antMatchers("/**").authenticated()
-                //.and().csrf().ignoringAntMatchers("/homepage") // Permet d'activer la barre de recherche
                 .and()
                 .formLogin()
                 .loginPage("/login")
