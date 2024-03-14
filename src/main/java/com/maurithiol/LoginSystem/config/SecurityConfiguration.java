@@ -12,7 +12,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*http
+        http
                 .authorizeRequests().antMatchers("/login", "/register", "/resources/**", "/homepage/**")
                 .permitAll()
                 .antMatchers("/auth/dashboard/admin/**").hasAuthority("ADMIN")
@@ -33,8 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 })
                 .and()
                 .logout()
-                .permitAll();*/
-        http.authorizeRequests().anyRequest().permitAll().and().csrf().disable();
+                .permitAll();
 
     }
 
