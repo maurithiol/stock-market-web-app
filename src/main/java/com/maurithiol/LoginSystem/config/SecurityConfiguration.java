@@ -31,7 +31,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     }
                     response.sendRedirect("/auth/dashboard/user");
                 })
-                .and()
+                .and().httpBasic()
+                .and().csrf().disable()
                 .logout()
                 .permitAll();
 
