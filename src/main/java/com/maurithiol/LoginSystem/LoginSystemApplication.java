@@ -17,17 +17,4 @@ public class LoginSystemApplication {
 		SpringApplication.run(LoginSystemApplication.class, args);
 	}
 
-	/*@Bean
-	public CommandLineRunner runner(AuthUserRepository repository) {
-		return args -> {
-			AuthUser user = new AuthUser();
-			user.setUsername("admin");
-			user.setEmail("maurithiol@gmail.com");
-			user.setPassword(new BCryptPasswordEncoder().encode("1234"));
-			user.setRole(AuthRole.ADMIN);
-			user.setActive(true);
-			repository.save(user);
-		};
-	}*/
-
 }
