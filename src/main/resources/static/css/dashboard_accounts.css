@@ -20,7 +20,7 @@ body {
 }
 
 .dash {
-  color: gray;
+  color: var(--third-color);
   height: 95%;
   width: 70%;
   position: relative;
