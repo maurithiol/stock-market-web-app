@@ -16,36 +16,37 @@
 
 body {
   background: var(--secondary-color);
+  color: var(--third-color);
 }
 
 .dash {
   color: gray;
   height: 95%;
-  width: 80%;
+  width: 70%;
   position: relative;
   left: 125px;
   margin: auto;
   top: 90px;
+  box-shadow: 0 0 20px rgba(0.4, 0.4, 0.4, 0.4);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  color: var(--third-color);
 }
 
 th, td {
-  border: 3px solid var(--primary-color);
+  border: 3px solid var(--secondary-color);
   padding: 10px;
   text-align: left;
+  box-shadow: 0 0 20px rgba(0.4, 0.4, 0.4, 0.4);
 }
 
 thead {
-  background-color: var(--primary-color);
-}
-
-h1 {
-  font-size: 45px;
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 20px rgba(0.4, 0.4, 0.4, 0.4);
 }
 
 @media screen and (max-width: 768px) {
