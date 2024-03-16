@@ -15,8 +15,7 @@
     <form action="/auth/dashboard/user/profile" th:action="@{/auth/dashboard/user/profile}" class="input-group" id="save" th:object="${profile}" method="post">
         <input type="text" placeholder="Username" class="input-field" th:field="*{username}">
         <input type="email" placeholder="Email" class="input-field" th:field="*{email}">
-        <input type="text" placeholder="Password" class="input-field" th:field="*{password}">
-        <input type="text" placeholder="Role" class="input-field" th:field="*{role}" readonly="readonly">
+        <input type="password" placeholder="Password" class="input-field" th:field="*{password}">
         <input type="submit" value="Save" class="sub-btn">
     </form>
 </div>
