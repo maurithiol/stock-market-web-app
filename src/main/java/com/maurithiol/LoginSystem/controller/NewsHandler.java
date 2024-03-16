@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @AllArgsConstructor
-public class MarketHandler {
+public class NewsHandler {
 
-    @GetMapping("/auth/dashboard/user/market")
+    @GetMapping("/auth/dashboard/user/news")
     public String showUserMarket() {
-        return "dashboard_user_market";
+        return "dashboard_user_news";
     }
 
-    @GetMapping("/auth/dashboard/admin/market")
+    @GetMapping("/auth/dashboard/admin/news")
     public String showAdminMarket() {
-        return "dashboard_admin_market";
+        return "dashboard_admin_news";
     }
 
 }
