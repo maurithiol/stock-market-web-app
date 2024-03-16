@@ -19,11 +19,15 @@ body{
 }
 
 .dash {
-    flex: 1;
     height: 100%;
     width: 86%;
     padding: 2px;
     position: absolute;
     display: block;
     right: 0px;
+}
+
+.one {
+width: 60%;
+height: 50%;
 }
