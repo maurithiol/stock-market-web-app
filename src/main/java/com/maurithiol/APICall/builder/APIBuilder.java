@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class APIBuilder {
-    private final String API_KEY = "d3a872a32b9a41f2a04f088d093444a8";
+    private final String API_KEY = "336b96ba9ef94136b1e2145aed989d98";
     private String prefix;
     private List<APIArgs> args;
 

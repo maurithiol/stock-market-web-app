@@ -19,13 +19,15 @@ body {
 }
 
 .sidebar {
-  background: var(--primary-color);
+  background: var(--secondary-color);
   position: fixed;
-  width: 250px;
+  width: 14%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar a, form button {
@@ -37,7 +39,6 @@ body {
 
 .sidebar a i, form button i {
   margin-right: 10px;
-  align-items: center;
 }
 
 .section-divider {
@@ -46,10 +47,10 @@ body {
 }
 
 .profile {
-  height: 140px;
-  width: 140px;
+  height: 120px;
+  width: 120px;
   background: var(--secondary-color);
-  margin: 50px;
+  margin: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -59,15 +60,15 @@ body {
 }
 
 .profile img {
-  height: 142px;
-  width: 142px;
+  height: 122px;
+  width: 122px;
 }
 
 form button {
-  display: block;
+  display: flex;
   padding: 22px;
   width: 120px;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: var(--third-color);
   border: 0;
   cursor: pointer;
@@ -83,6 +84,13 @@ a {
 
 h1 {
   font-size: 45px;
+}
+
+.main {
+  flex-grow: 1; /* Allow the main list to grow and occupy the remaining space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (max-width: 768px) {

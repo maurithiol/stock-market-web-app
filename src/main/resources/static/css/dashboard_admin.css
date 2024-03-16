@@ -18,42 +18,12 @@ body{
   background: var(--secondary-color);
 }
 
-.sidebar {
-  background: var(--primary-color);
-  position: fixed;
-  width: 200px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sidebar a, form button {
-  display: block;
-  padding: 22px;
-  color: var(--third-color);
-}
-
-.sidebar a i, form button i {
-  margin-right: 10px;
-}
-
-.logo {
-  height: 120px;
-  width: 120px;
-  background: var(--secondary-color);
-  margin: 50px;
-  border-radius: 100%;
-}
-
-form button {
-  display: block;
-  padding: 22px;
-  width: 120px;
-  background-color: var(--primary-color);
-  color: var(--third-color);
-  border: 0;
-  cursor: pointer;
-  font-size: 15px;
-  text-align: center;
+.dash {
+    flex: 1;
+    height: 100%;
+    width: 86%;
+    padding: 2px;
+    position: absolute;
+    display: block;
+    right: 0px;
 }
