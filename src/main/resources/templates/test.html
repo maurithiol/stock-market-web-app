@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset=" UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{~/css/test.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Stock Details</title>
+</head>
+
+<body>
+    <header>
+        <a id="site-logo" th:href="@{'/homepage}">TradingVista</a>
+        <input type="search" placeholder="Search..." />
+    </header>
+    <nav id="ticker-tape"></nav>
+    <main>
+        <section id="symbol-info">
+        </section>
+        <section id="advanced-chart">
+        </section>
+        <section id="company-profile">
+        </section>
+        <section id="fundamental-data">
+        </section>
+        <section id="technical-analysis">
+        </section>
+        <section id="top-stories">
+        </section>
+        <section id="powered-by-tv">
+            <svg xmlns="http://www.w3.org/2000/svg" width="157" height="21">
+                <use href="/widget-docs/tradingview-logo.svg#tradingview-logo"></use>
+            </svg>
+            <p>
+                Charts and financial information provided by TradingView, a popular
+                charting & trading platform. Check out even more
+                <a href="https://www.tradingview.com/features/">advanced features</a>
+                or <a href="https://www.tradingview.com/widget/">grab charts</a> for
+                your website.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>
+            This example page is part of a tutorial for integrating TradingView
+            widgets into your website.
+        </p>
+        <p><a href="/widget-docs/tutorials/build-page/">View the tutorial</a></p>
+    </footer>
+</body>
+<template id="ticker-tape-widget-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+            async>
+                {
+                    "symbols": [
+                        {
+                            "description": "",
+                            "proName": "NASDAQ:TSLA"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NASDAQ:AAPL"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NASDAQ:NVDA"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NASDAQ:MSFT"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NASDAQ:AMZN"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NASDAQ:GOOGL"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NASDAQ:META"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NYSE:BRK.B"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NYSE:LLY"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NYSE:UNH"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NYSE:V"
+                        },
+                        {
+                            "description": "",
+                            "proName": "NYSE:WMT"
+                        }
+                    ],
+                        "showSymbolLogo": true,
+                            "colorTheme": "light",
+                                "isTransparent": false,
+                                    "displayMode": "adaptive",
+                                        "locale": "en",
+                                            "largeChartUrl": "#"
+                }
+            </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<template id="symbol-info-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
+            async>
+                {
+                    "symbol": "NASDAQ:AAPL",
+                        "width": "100%",
+                            "locale": "en",
+                                "colorTheme": "light",
+                                    "isTransparent": true
+                }
+            </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<template id="advanced-chart-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container" style="height: 100%; width: 100%">
+        <div id="tradingview_ae7da" style="height: calc(100% - 32px); width: 100%"></div>
+
+        <script type="text/javascript">
+            new TradingView.widget({
+                autosize: true,
+                symbol: 'NASDAQ:AAPL',
+                interval: 'D',
+                timezone: 'Etc/UTC',
+                theme: 'light',
+                style: '1',
+                locale: 'en',
+                enable_publishing: false,
+                hide_side_toolbar: false,
+                allow_symbol_change: true,
+                studies: ['STD;MACD'],
+                container_id: 'tradingview_ae7da',
+            });
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<template id="company-profile-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
+                {
+                    "width": "100%",
+                        "height": "100%",
+                            "colorTheme": "light",
+                                "isTransparent": true,
+                                    "symbol": "NASDAQ:AAPL",
+                                        "locale": "en"
+                }
+            </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<template id="fundamental-data-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js"
+            async>
+                {
+                    "colorTheme": "light",
+                        "isTransparent": true,
+                            "largeChartUrl": "",
+                                "displayMode": "adaptive",
+                                    "width": "100%",
+                                        "height": "100%",
+                                            "symbol": "NASDAQ:AAPL",
+                                                "locale": "en"
+                }
+            </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<template id="technical-analysis-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                {
+                    "interval": "15m",
+                        "width": "100%",
+                            "isTransparent": true,
+                                "height": "100%",
+                                    "symbol": "NASDAQ:AAPL",
+                                        "showIntervalTabs": true,
+                                            "displayMode": "single",
+                                                "locale": "en",
+                                                    "colorTheme": "light"
+                }
+            </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<template id="top-stories-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
+            async>
+                {
+                    "feedMode": "symbol",
+                        "symbol": "NASDAQ:AAPL",
+                            "colorTheme": "light",
+                                "isTransparent": true,
+                                    "displayMode": "regular",
+                                        "width": "100%",
+                                            "height": "100%",
+                                                "locale": "en"
+                }
+            </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<script>
+    function getQueryParam(param) {
+        let urlSearchParams = new URLSearchParams(window.location.search);
+        console.log(urlSearchParams)
+        return urlSearchParams.get(param);
+    }
+    function readSymbolFromQueryString() {
+        return getQueryParam('tvwidgetsymbol');
+    }
+
+    function cloneTemplateInto(templateId, targetId, rewrites) {
+        const tmpl = document.querySelector(`#${templateId}`);
+        if (!tmpl) return;
+        const target = document.querySelector(`#${targetId}`);
+        if (!target) return;
+        target.innerText = '';
+        const clone = tmpl.content.cloneNode(true);
+        if (rewrites) {
+            const script = clone.querySelector('script');
+            script.textContent = rewrites(script.textContent);
+        }
+        target.appendChild(clone);
+    }
+    function currentPage() {
+        const l = document.location;
+        if (!l) return;
+        if (l.origin && l.pathname) return l.origin + l.pathname;
+        return l.href;
+    }
+    cloneTemplateInto('ticker-tape-widget-template', 'ticker-tape', function (scriptContent) {
+        const currentPageUrl = currentPage();
+        if (!currentPageUrl) return scriptContent;
+        return scriptContent.replace('"largeChartUrl": "#"', `"largeChartUrl": "${currentPageUrl}"`)
+    });
+    const symbol = readSymbolFromQueryString() || 'NASDAQ:AAPL';
+    function setSymbol(scriptContent) {
+        return scriptContent.replace(/"symbol": "([^"]*)"/g, () => {
+            return `"symbol": "${symbol}"`;
+        });
+    }
+    cloneTemplateInto('symbol-info-template', 'symbol-info', setSymbol);
+    cloneTemplateInto('advanced-chart-template', 'advanced-chart');
+    cloneTemplateInto('company-profile-template', 'company-profile', setSymbol);
+    cloneTemplateInto('fundamental-data-template', 'fundamental-data', setSymbol);
+    cloneTemplateInto('technical-analysis-template', 'technical-analysis', setSymbol);
+    cloneTemplateInto('top-stories-template', 'top-stories', setSymbol);
+    if (symbol) {
+        document.title = `Stock Details - ${symbol}`;
+    }
+</script>
+
+</html>
