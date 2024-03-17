@@ -20,21 +20,21 @@
             <td>Password</td>
             <td>Role</td>
             <td>Active</td>
-            <td><a href="/auth/dashboard/admin/accounts/new">Create new</a></td>
+            <td><a href="/auth/dashboard/admin/accounts/new" style="color: rgb(0, 201, 0);"><i class="fa-solid fa-plus"></i></a></td>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${userList}">
+        <tr class="row" th:each="user : ${userList}">
             <td th:text="${user.id}">id</td>
-            <td th:text="${user.username}">id</td>
-            <td th:text="${user.email}">id</td>
-            <td th:text="${user.password}">id</td>
-            <td th:text="${user.role}">id</td>
-            <td th:text="${user.active}">id</td>
+            <td th:text="${user.username}">username</td>
+            <td th:text="${user.email}">email</td>
+            <td th:text="${user.password}">password</td>
+            <td th:text="${user.role}">role</td>
+            <td th:text="${user.active}">active</td>
             <td>
-                <a th:href="@{'/auth/dashboard/admin/accounts/edit/' + ${user.id}}">Edit</a>
+                <a th:href="@{'/auth/dashboard/admin/accounts/edit/' + ${user.id}}" style="color: rgb(255, 170, 0);"><i class="fa-solid fa-pen-to-square"></i></a>
                 &nbsp;
-                <a th:href="@{'/auth/dashboard/admin/accounts/delete/' + ${user.id}}">Delete</a>
+                <a th:href="@{'/auth/dashboard/admin/accounts/delete/' + ${user.id}}" style="color: rgb(201, 7, 7);"><i class="fa-solid fa-trash"></i></a>
             </td>
         </tr>
         </tbody>
