@@ -13,7 +13,9 @@
 <br>
 <div class="dash">
     <form action="/auth/dashboard/admin/profile/upload/go" th:action="@{/auth/dashboard/admin/profile/upload/go}" class="input-group" method="post" enctype="multipart/form-data" id="upload">
-        <input type="file" class="input-field" name="file" />
+        <div class="input-item">
+            <input type="file" class="input-field" name="file" />
+        </div>
         <input type="submit" value="Upload" class="sub-btn">
     </form>
 </div>
