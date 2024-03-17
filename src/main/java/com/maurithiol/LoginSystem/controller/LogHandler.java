@@ -1,11 +1,8 @@
 package com.maurithiol.LoginSystem.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
-import com.maurithiol.APICall.data.DataList;
 import com.maurithiol.LoginSystem.auth.AuthRole;
 import com.maurithiol.LoginSystem.auth.AuthUser;
 import com.maurithiol.LoginSystem.auth.AuthUserRepository;
@@ -52,21 +49,6 @@ public class LogHandler {
     @GetMapping("/auth/dashboard/admin")
     public String showAdminDashboard() {
         return "dashboard_admin";
-    }
-
-    @GetMapping("/homepage")
-    public String showHomePage() {
-        return "homepage";
-    }
-
-    @PostMapping("/homepage")
-    public String search(@RequestParam("search") String searchTerm, Model model) throws Exception {
-        String apiRequest = "https://api.twelvedata.com/symbol_search?symbol=";
-        apiRequest += searchTerm;
-        RestTemplate restTemplate = new RestTemplate();
-        DataList dataList = restTemplate.getForObject(apiRequest, DataList.class);
-        model.addAttribute("dataList", dataList.getData());
-        return "homepage";
     }
 
 }

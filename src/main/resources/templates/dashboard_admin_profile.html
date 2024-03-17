@@ -12,12 +12,14 @@
 </div>
 <br>
 <div class="dash">
-    <form action="/auth/dashboard/admin/profile" th:action="@{/auth/dashboard/admin/profile}" class="input-group" id="save" th:object="${profile}" method="post">
-        <input type="text" placeholder="Username" class="input-field" th:field="*{username}">
-        <input type="email" placeholder="Email" class="input-field" th:field="*{email}">
-        <input type="text" placeholder="Password" class="input-field" th:field="*{password}">
-        <input type="text" placeholder="Role" class="input-field" th:field="*{role}" readonly="readonly">
-        <input type="submit" value="Save" class="sub-btn">
+    <form th:action="@{/auth/dashboard/admin/profile}" method="post" th:object="${profile}" class="input-group">
+        <input type="text" placeholder="ID" class="input-field" th:field="*{id}" />
+        <input type="text" placeholder="Username" class="input-field" th:field="*{username}" />
+        <input type="email" placeholder="Email" class="input-field" th:field="*{email}" />
+        <input type="text" placeholder="Password" class="input-field" th:field="*{password}" />
+        <input type="text" placeholder="Role" class="input-field" th:field="*{role}" readonly="readonly" />
+        <input type="text" placeholder="Active" class="input-field" th:field="*{active}" readonly="readonly" />
+        <input type="submit" value="Save" class="sub-btn" />
     </form>
 </div>
 </body>
