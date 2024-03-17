@@ -24,7 +24,6 @@
     height: 100%;
     width: 86%;
     position: absolute;
-    box-shadow: 0 0 20px rgba(0.4, 0.4, 0.4, 0.4);
     right: 0px;
   }
 
@@ -47,92 +46,4 @@
   thead {
     opacity: 1;
     border-bottom: 0.5px solid var(--third-color);
-  }
-
-  .sidebar {
-    background: var(--secondary-color);
-    position: fixed;
-    width: 14%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(0.4, 0.4, 0.4, 0.4);
-  }
-
-  .sidebar a, form button {
-    display: flex;
-    padding: 22px;
-    color: var(--third-color);
-    border-radius: 50%;
-  }
-
-  .sidebar a i, form button i {
-    margin-right: 10px;
-  }
-
-  .profile {
-    height: 120px;
-    width: 120px;
-    background: var(--secondary-color);
-    margin: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 30px var(--third-color);
-    overflow: hidden;
-  }
-
-  .profile img {
-    height: 122px;
-    width: 122px;
-  }
-
-  form button {
-    display: flex;
-    padding: 22px;
-    width: 120px;
-    background-color: var(--secondary-color);
-    color: var(--third-color);
-    border: 0;
-    cursor: pointer;
-    font-size: 15px;
-    text-align: center;
-  }
-
-  a {
-    text-decoration: none;
-    cursor: pointer;
-    color: var(--third-color);
-  }
-
-  h1 {
-    font-size: 45px;
-  }
-
-  .main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .slider {
-      height: 80px;
-      margin-top: 10px;
-  }
-
-  @media screen and (max-width: 768px) {
-
-    .sidebar {
-      width: 100%;
-      height: 630px;
-    }
-
-    .profile {
-      display: none;
-    }
-
   }

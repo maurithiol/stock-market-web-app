@@ -10,7 +10,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
   }
 
@@ -20,64 +20,53 @@
   }
 
   .dash {
-    top: 90px;
-    width: 380px;
-    height: 480px;
-    position: relative;
-    margin: 6% auto;
-    background: var(--secondary-color);
-    padding: 5px;
-    color: var(--third-color);
-    font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 0 0 20px rgba(0.4, 0.4, 0.4, 0.4);
-  }
+      color: var(--third-color);
+      width: 86%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-  input[type="text"], input[type="email"], input[type="password"] {
-    color: var(--third-color)
-  }
+    input[type="text"], input[type="email"], input[type="password"] {
+      color: var(--third-color)
+    }
 
-  .input-group {
-    top: 15%;
-    position: relative;
-    width: 280px;
-    transition: .5s;
-  }
+    .input-group {
+      top: 250px;
+      width: 300px;
+      transition: .5s;
+    }
 
-  .input-field {
-    width: 100%;
-    padding: 10px 0;
-    margin: 5px 0;
-    border-left: 0;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 1px solid var(--third-color);
-    outline: none;
-    background: transparent;
-  }
+    .input-field {
+      width: 100%;
+      padding: 10px 0;
+      margin: 5px 0;
+      border-left: 0;
+      border-top: 0;
+      border-right: 0;
+      border-bottom: 1px solid var(--third-color);
+      outline: none;
+      background: transparent;
+    }
 
-  .sub-btn {
-    width: 85%;
-    padding: 10px 30px;
-    cursor: pointer;
-    display: block;
-    margin: auto;
-    background: var(--secondary-color);
-    border: 0;
-    outline: none;
-    border-radius: 30px;
-    color: var(--third-color);
-    position: relative;
-    top: 30px;
-    box-shadow: 0 0 20px rgba(0.4, 0.4, 0.4, 0.4);
-  }
+    .sub-btn {
+      width: 85%;
+      padding: 10px 30px;
+      cursor: pointer;
+      display: block;
+      margin: auto;
+      margin-top: 50px;
+      background: var(--secondary-color);
+      border: 0;
+      outline: none;
+      border-radius: 30px;
+      color: var(--third-color);
+      box-shadow: 0 0 20px rgba(0.4, 0.4, 0.4, 0.4);
+    }
 
-  h1 {
-    font-size: 45px;
-    color: var(--third-color);
-    position: relative;
-    left: 10%;
-  }
-
-  #save {
-    left: 50px;
-  }
+      .input-item {
+          margin-bottom: 20px;
+      }
