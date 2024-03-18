@@ -9,140 +9,164 @@
 </head>
 <body>
 <div class="dash">
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-    {
-    "width": "100%",
-    "height": "100%",
-    "symbolsGroups": [
-      {
-        "name": "Indices",
-        "originalName": "Indices",
-        "symbols": [
-          {
-            "name": "FOREXCOM:SPXUSD",
-            "displayName": "S&P 500 Index"
-          },
-          {
-            "name": "FOREXCOM:NSXUSD",
-            "displayName": "US 100 Cash CFD"
-          },
-          {
-            "name": "FOREXCOM:DJI",
-            "displayName": "Dow Jones Industrial Average Index"
-          },
-          {
-            "name": "INDEX:NKY",
-            "displayName": "Nikkei 225"
-          },
-          {
-            "name": "INDEX:DEU40",
-            "displayName": "DAX Index"
-          },
-          {
-            "name": "FOREXCOM:UKXGBP",
-            "displayName": "FTSE 100 Index"
-          }
-        ]
-      },
-      {
-        "name": "Futures",
-        "originalName": "Futures",
-        "symbols": [
-          {
-            "name": "CME_MINI:ES1!",
-            "displayName": "S&P 500"
-          },
-          {
-            "name": "CME:6E1!",
-            "displayName": "Euro"
-          },
-          {
-            "name": "COMEX:GC1!",
-            "displayName": "Gold"
-          },
-          {
-            "name": "NYMEX:CL1!",
-            "displayName": "WTI Crude Oil"
-          },
-          {
-            "name": "NYMEX:NG1!",
-            "displayName": "Gas"
-          },
-          {
-            "name": "CBOT:ZC1!",
-            "displayName": "Corn"
-          }
-        ]
-      },
-      {
-        "name": "Bonds",
-        "originalName": "Bonds",
-        "symbols": [
-          {
-            "name": "CBOT:ZB1!",
-            "displayName": "T-Bond"
-          },
-          {
-            "name": "CBOT:UB1!",
-            "displayName": "Ultra T-Bond"
-          },
-          {
-            "name": "EUREX:FGBL1!",
-            "displayName": "Euro Bund"
-          },
-          {
-            "name": "EUREX:FBTP1!",
-            "displayName": "Euro BTP"
-          },
-          {
-            "name": "EUREX:FGBM1!",
-            "displayName": "Euro BOBL"
-          }
-        ]
-      },
-      {
-        "name": "Forex",
-        "originalName": "Forex",
-        "symbols": [
-          {
-            "name": "FX:EURUSD",
-            "displayName": "EUR to USD"
-          },
-          {
-            "name": "FX:GBPUSD",
-            "displayName": "GBP to USD"
-          },
-          {
-            "name": "FX:USDJPY",
-            "displayName": "USD to JPY"
-          },
-          {
-            "name": "FX:USDCHF",
-            "displayName": "USD to CHF"
-          },
-          {
-            "name": "FX:AUDUSD",
-            "displayName": "AUD to USD"
-          },
-          {
-            "name": "FX:USDCAD",
-            "displayName": "USD to CAD"
-          }
-        ]
-      }
-    ],
-    "showSymbolLogo": true,
-  "isTransparent": false,
-  "colorTheme": "dark",
-  "locale": "en",
-  "backgroundColor": "#141b2e"
-  }
-    </script>
-    </div>
+    <main>
+        <section id="symbol-info" class="widget">
+        </section>
+        <section id="top-stories" class="widget">
+        </section>
+        <section id="company-profile" class="widget">
+        </section>
+        <section id="technical-analysis" class="widget">
+        </section>
+        <section id="fundamental-data" class="widget">
+        </section>
+    </main>
 </div>
 <div th:insert="sidebar_admin :: admin_sidebar_fragment">
 </div>
 </body>
+<template id="symbol-info-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
+                async>
+                    {
+                        "symbol": "NASDAQ:AAPL",
+                            "width": "100%",
+                                "locale": "en",
+                                    "colorTheme": "dark",
+                                        "isTransparent": true
+                    }
+                </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<template id="company-profile-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
+                    {
+                        "width": "100%",
+                            "height": "100%",
+                                "colorTheme": "dark",
+                                    "isTransparent": true,
+                                        "symbol": "NASDAQ:AAPL",
+                                            "locale": "en"
+                    }
+                </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<template id="fundamental-data-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js"
+                async>
+                    {
+                        "colorTheme": "dark",
+                            "isTransparent": true,
+                                    "displayMode": "adaptive",
+                                        "width": "100%",
+                                            "height": "100%",
+                                                "symbol": "NASDAQ:AAPL",
+                                                    "locale": "en"
+                    }
+                </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<template id="technical-analysis-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                    {
+                        "interval": "15m",
+                            "width": "100%",
+                                "isTransparent": true,
+                                    "height": "100%",
+                                        "symbol": "NASDAQ:AAPL",
+                                            "showIntervalTabs": true,
+                                                "displayMode": "single",
+                                                    "locale": "en",
+                                                        "colorTheme": "dark"
+                    }
+                </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<template id="top-stories-template">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
+                async>
+                    {
+                        "feedMode": "symbol",
+                            "symbol": "NASDAQ:AAPL",
+                                "colorTheme": "dark",
+                                    "isTransparent": true,
+                                        "displayMode": "regular",
+                                            "width": "100%",
+                                                "height": "100%",
+                                                    "locale": "en"
+                    }
+                </script>
+    </div>
+    <!-- TradingView Widget END -->
+</template>
+<script>
+        function getQueryParam(param) {
+            let urlSearchParams = new URLSearchParams(window.location.search);
+            console.log(urlSearchParams)
+            return urlSearchParams.get(param);
+        }
+        function readSymbolFromQueryString() {
+            return getQueryParam('tvwidgetsymbol');
+        }
+
+        function cloneTemplateInto(templateId, targetId, rewrites) {
+            const tmpl = document.querySelector(`#${templateId}`);
+            if (!tmpl) return;
+            const target = document.querySelector(`#${targetId}`);
+            if (!target) return;
+            target.innerText = '';
+            const clone = tmpl.content.cloneNode(true);
+            if (rewrites) {
+                const script = clone.querySelector('script');
+                script.textContent = rewrites(script.textContent);
+            }
+            target.appendChild(clone);
+        }
+        function currentPage() {
+            const l = document.location;
+            if (!l) return;
+            if (l.origin && l.pathname) return l.origin + l.pathname;
+            return l.href;
+        }
+        cloneTemplateInto('ticker-tape-widget-template', 'ticker-tape', function (scriptContent) {
+            const currentPageUrl = currentPage();
+            if (!currentPageUrl) return scriptContent;
+            return scriptContent.replace('"largeChartUrl": "#"', `"largeChartUrl": "${currentPageUrl}"`)
+        });
+        const symbol = readSymbolFromQueryString() || 'NASDAQ:AAPL';
+        function setSymbol(scriptContent) {
+            return scriptContent.replace(/"symbol": "([^"]*)"/g, () => {
+                return `"symbol": "${symbol}"`;
+            });
+        }
+        cloneTemplateInto('symbol-info-template', 'symbol-info', setSymbol);
+        cloneTemplateInto('company-profile-template', 'company-profile', setSymbol);
+        cloneTemplateInto('fundamental-data-template', 'fundamental-data', setSymbol);
+        cloneTemplateInto('technical-analysis-template', 'technical-analysis', setSymbol);
+        cloneTemplateInto('top-stories-template', 'top-stories', setSymbol);
+        if (symbol) {
+            document.title = `Stock Details - ${symbol}`;
+        }
+    </script>
 </html>
