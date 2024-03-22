@@ -25,6 +25,7 @@
     width: 86%;
     position: absolute;
     right: 0px;
+    overflow: hidden;
   }
 
   table {

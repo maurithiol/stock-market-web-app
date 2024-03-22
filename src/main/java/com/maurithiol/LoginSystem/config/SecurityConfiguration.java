@@ -14,7 +14,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/login", "/register", "/resources/**", "/homepage/**", "/stock/**", "/test/**")
+                .antMatchers("/login", "/register", "/resources/**")
                 .permitAll()
                 .antMatchers("/auth/dashboard/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/auth/dashboard/user/**").hasAuthority("USER")
@@ -35,7 +35,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll();
-
     }
 
 }

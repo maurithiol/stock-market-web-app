@@ -34,10 +34,12 @@ public class AccHandler {
 
     @PostMapping("/auth/dashboard/admin/accounts/add")
     public String addUser(AuthUser user) {
-        user.setPassword(encoder.passwordEncoder().encode(user.getPassword()));
+        if(user.getPassword().length() < 16 && user.getPassword() != null)
+            user.setPassword(encoder.passwordEncoder().encode(user.getPassword()));
         repository.save(user);
         return "redirect:/auth/dashboard/admin/accounts";
     }
+
 
     @RequestMapping("/auth/dashboard/admin/accounts/edit/{id}")
     public ModelAndView editUser(@PathVariable("id") String id) {
