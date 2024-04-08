@@ -1,0 +1,50 @@
+<div th:fragment="sidebar_script_fragment">
+    <script>
+        function createLink(item) {
+            let listItem = document.createElement('li');
+
+            let link = document.createElement('a');
+            link.href = `/auth/dashboard/user?tvwidgetsymbol=${item.exchange}:${item.symbol}`;
+            link.textContent = `${item.symbol} - ${item.instrument_name} - ${item.exchange}`;
+
+            listItem.appendChild(link);
+
+            return listItem;
+        }
+
+        function fetchData(searchTerm) {
+            fetch('https://api.twelvedata.com/symbol_search?symbol=' + searchTerm)
+                .then(response => response.json())
+                .then(data => {
+                    let searchResultsList = document.getElementById('searchResults');
+                    searchResultsList.innerHTML = '';
+
+                    data.data.forEach(item => {
+                        // Créer un lien pour chaque élément de données
+                        let linkItem = createLink(item);
+                        searchResultsList.appendChild(linkItem);
+                    });
+                })
+                .catch(error => console.error('Erreur lors de la récupération des données :', error));
+        }
+
+        document.getElementById("searchInput").addEventListener("input", function (event) {
+            const searchTerm = event.target.value.trim();
+            const searchResultsList = document.getElementById('searchResults');
+
+            if (searchTerm !== '') {
+                fetchData(searchTerm);
+                document.querySelectorAll('.main > li').forEach(element => {
+                    element.style.display = 'none';
+                });
+                searchResultsList.style.display = 'block';
+            } else {
+                document.querySelectorAll('.main > li').forEach(element => {
+                    element.style.display = 'block';
+                });
+                searchResultsList.innerHTML = '';
+                searchResultsList.style.display = 'none';
+            }
+        });
+    </script>
+</div>

@@ -1,67 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
-<div class="sidebar" th:fragment="admin_sidebar_fragment">
+  <div class="sidebar" th:fragment="admin_sidebar_fragment">
     <link rel="stylesheet" th:href="@{~/css/sidebar.css}" />
     <div class="slider">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {
-  "symbols": [
-    {
-      "proName": "FOREXCOM:SPXUSD",
-      "title": "S&P 500 Index"
-    },
-    {
-      "proName": "FOREXCOM:NSXUSD",
-      "title": "US 100 Cash CFD"
-    },
-    {
-      "proName": "FX_IDC:EURUSD",
-      "title": "EUR to USD"
-    },
-    {
-      "proName": "BITSTAMP:BTCUSD",
-      "title": "Bitcoin"
-    },
-    {
-      "proName": "BITSTAMP:ETHUSD",
-      "title": "Ethereum"
-    }
-  ],
-  "showSymbolLogo": true,
-  "isTransparent": true,
-  "displayMode": "regular",
-  "colorTheme": "dark",
-  "locale": "en"
-}
-  </script>
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+        async>
+          {
+            "symbols": [
+              {
+                "proName": "FOREXCOM:SPXUSD",
+                "title": "S&P 500 Index"
+              },
+              {
+                "proName": "FOREXCOM:NSXUSD",
+                "title": "US 100 Cash CFD"
+              },
+              {
+                "proName": "FX_IDC:EURUSD",
+                "title": "EUR to USD"
+              },
+              {
+                "proName": "BITSTAMP:BTCUSD",
+                "title": "Bitcoin"
+              },
+              {
+                "proName": "BITSTAMP:ETHUSD",
+                "title": "Ethereum"
+              }
+            ],
+              "showSymbolLogo": true,
+                "isTransparent": true,
+                  "displayMode": "regular",
+                    "colorTheme": "dark",
+                      "locale": "en"
+          }
+        </script>
     </div>
     <br>
-    <div class="profile"><a href="/auth/dashboard/admin/profile/upload" ><img id="profile" th:src="@{/uploads/{username}.jpg(username=${#authentication.principal.username})}"></a></div>
+    <div class="profile"><a href="/auth/dashboard/admin/profile/upload"><img id="profile"
+          th:src="@{/uploads/{username}.jpg(username=${#authentication.principal.username})}"></a></div>
     <ul class="main">
-        <br>
-        <br>
-        <br>
-        <br>
-        <li><a href="/auth/dashboard/admin"><i class="fa-solid fa-layer-group"></i><span>Dashboard</span></a></li>
-        <li><a href="/auth/dashboard/admin/market"><i class="fa-solid fa-shop"></i><span>Market</span></a></li>
-        <li><a href="/auth/dashboard/admin/news"><i class="fa-solid fa-newspaper"></i><span>News</span></a></li>
-        <li><a href="/auth/dashboard/admin/profile"><i class="fas fa-user"></i><span>Profile</span></a></li>
-        <li><a href="/auth/dashboard/admin/accounts"><i class="fas fa-cog"></i><span>Panel</span></a></li>
-        <form th:action="@{/logout}" method="post">
-            <button type="submit" class="">
-                <i class="fas fa-sign-out-alt"></i>
-                <span>Logout</span>
-            </button>
-        </form>
+      <br>
+      <br>
+      <form id="searchForm" action="/homepage" method="post" autocomplete="off">
+        <input class="searchBar" id="searchInput" type="text" placeholder="Search for Stock" name="search"
+          autocomplete="off">
+      </form>
+      <ul id="searchResults"></ul>
+      <br>
+      <br>
+      <li><a href="/auth/dashboard/admin"><i class="fa-solid fa-layer-group"></i><span>Dashboard</span></a></li>
+      <li><a href="/auth/dashboard/admin/market"><i class="fa-solid fa-shop"></i><span>Market</span></a></li>
+      <li><a href="/auth/dashboard/admin/news"><i class="fa-solid fa-newspaper"></i><span>News</span></a></li>
+      <li><a href="/auth/dashboard/admin/profile"><i class="fas fa-user"></i><span>Profile</span></a></li>
+      <li><a href="/auth/dashboard/admin/accounts"><i class="fas fa-cog"></i><span>Panel</span></a></li>
+      <form th:action="@{/logout}" method="post">
+        <button type="submit" class="">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </button>
+      </form>
     </ul>
-</div>
+  </div>
 </body>
+
 </html>

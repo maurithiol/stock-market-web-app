@@ -1,51 +1,58 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Stock Dashboard</title>
     <link rel="stylesheet" th:href="@{~/css/dashboard_admin_profile.css}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
-<div th:insert="sidebar_admin :: admin_sidebar_fragment">
-</div>
-<br>
-<div class="dash">
-    <form action="/auth/dashboard/admin/profile/add" th:action="@{/auth/dashboard/admin/profile/add}" class="input-group" id="save" th:object="${user}" method="post">
-        <div class="input-item">
-            <label for="id">Id</label>
-            <input type="text" th:field="*{id}" class="input-field" name="id" placeholder="Id" readonly="readonly">
-        </div>
+    <div th:insert="sidebar_admin :: admin_sidebar_fragment"></div>
+    <div th:include="sidebar_script_admin :: sidebar_script_fragment"></div>
 
-        <div class="input-item">
-            <label for="username">Username</label>
-            <input type="text" th:field="*{username}" class="input-field" name="username" placeholder="Username" required>
-        </div>
+    <br>
+    <div class="dash">
+        <form action="/auth/dashboard/admin/profile/add" th:action="@{/auth/dashboard/admin/profile/add}"
+            class="input-group" id="save" th:object="${user}" method="post">
+            <div class="input-item">
+                <label for="id">Id</label>
+                <input type="text" th:field="*{id}" class="input-field" name="id" placeholder="Id" readonly="readonly">
+            </div>
 
-        <div class="input-item">
-            <label for="email">Email</label>
-            <input type="text" th:field="*{email}" class="input-field" name="email" placeholder="Email" required>
-        </div>
+            <div class="input-item">
+                <label for="username">Username</label>
+                <input type="text" th:field="*{username}" class="input-field" name="username" placeholder="Username"
+                    required>
+            </div>
 
-        <div class="input-item">
-            <label for="password">Password</label>
-            <input type="text" th:field="*{password}" class="input-field" name="password" placeholder="Password">
-        </div>
+            <div class="input-item">
+                <label for="email">Email</label>
+                <input type="text" th:field="*{email}" class="input-field" name="email" placeholder="Email" required>
+            </div>
 
-        <div class="input-item">
-            <label for="role">Role</label>
-            <input type="text" th:field="*{role}" class="input-field" name="role" placeholder="Role" readonly="readonly">
-        </div>
+            <div class="input-item">
+                <label for="password">Password</label>
+                <input type="text" th:field="*{password}" class="input-field" name="password" placeholder="Password">
+            </div>
 
-        <div class="input-item">
-            <label for="active">Active</label>
-            <input type="text" th:field="*{active}" class="input-field" name="active" placeholder="Active" readonly="readonly">
-        </div>
+            <div class="input-item">
+                <label for="role">Role</label>
+                <input type="text" th:field="*{role}" class="input-field" name="role" placeholder="Role"
+                    readonly="readonly">
+            </div>
 
-        <input type="submit" value="Save profile" class="sub-btn">
+            <div class="input-item">
+                <label for="active">Active</label>
+                <input type="text" th:field="*{active}" class="input-field" name="active" placeholder="Active"
+                    readonly="readonly">
+            </div>
 
-    </form>
-</div>
+            <input type="submit" value="Save profile" class="sub-btn">
+
+        </form>
+    </div>
 </body>
+
 </html>

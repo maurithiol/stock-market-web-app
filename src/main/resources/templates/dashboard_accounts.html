@@ -1,42 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <link rel="stylesheet" th:href="@{~/css/dashboard_accounts.css}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
-<div th:insert="sidebar_admin :: admin_sidebar_fragment">
-</div>
-<div class="dash">
-    <table>
-        <thead>
-        <tr>
-            <td>Id</td>
-            <td>Username</td>
-            <td>Email</td>
-            <td>Role</td>
-            <td>Active</td>
-            <td><a href="/auth/dashboard/admin/accounts/new" style="color: rgb(0, 201, 0);"><i class="fa-solid fa-plus"></i></a></td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="row" th:each="user : ${userList}">
-            <td th:text="${user.id}">id</td>
-            <td th:text="${user.username}">username</td>
-            <td th:text="${user.email}">email</td>
-            <td th:text="${user.role}">role</td>
-            <td th:text="${user.active}">active</td>
-            <td>
-                <a th:href="@{'/auth/dashboard/admin/accounts/edit/' + ${user.id}}" style="color: rgb(255, 170, 0);"><i class="fa-solid fa-pen-to-square"></i></a>
-                &nbsp;
-                <a th:href="@{'/auth/dashboard/admin/accounts/delete/' + ${user.id}}" style="color: rgb(201, 7, 7);"><i class="fa-solid fa-trash"></i></a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <div th:insert="sidebar_admin :: admin_sidebar_fragment"></div>
+    <div th:include="sidebar_script_admin :: sidebar_script_fragment"></div>
+
+    <div class="dash">
+        <table>
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Username</td>
+                    <td>Email</td>
+                    <td>Role</td>
+                    <td>Active</td>
+                    <td><a href="/auth/dashboard/admin/accounts/new" style="color: rgb(0, 201, 0);"><i
+                                class="fa-solid fa-plus"></i></a></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row" th:each="user : ${userList}">
+                    <td th:text="${user.id}">id</td>
+                    <td th:text="${user.username}">username</td>
+                    <td th:text="${user.email}">email</td>
+                    <td th:text="${user.role}">role</td>
+                    <td th:text="${user.active}">active</td>
+                    <td>
+                        <a th:href="@{'/auth/dashboard/admin/accounts/edit/' + ${user.id}}"
+                            style="color: rgb(255, 170, 0);"><i class="fa-solid fa-pen-to-square"></i></a>
+                        &nbsp;
+                        <a th:href="@{'/auth/dashboard/admin/accounts/delete/' + ${user.id}}"
+                            style="color: rgb(201, 7, 7);"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
+
 </html>

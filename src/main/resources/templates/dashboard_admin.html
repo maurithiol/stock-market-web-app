@@ -1,44 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <link rel="stylesheet" th:href="@{~/css/dashboard_admin.css}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
-<div class="dash">
-    <main>
-        <section id="symbol-info" class="widget">
-        </section>
-        <section id="top-stories" class="widget">
-        </section>
-        <section id="company-profile" class="widget">
-        </section>
-        <section id="technical-analysis" class="widget">
-        </section>
-        <section id="fundamental-data" class="widget">
-        </section>
-    </main>
-</div>
-<div th:insert="sidebar_admin :: admin_sidebar_fragment">
-</div>
+    <div class="dash">
+        <main>
+            <section id="symbol-info" class="widget">
+            </section>
+            <section id="top-stories" class="widget">
+            </section>
+            <section id="company-profile" class="widget">
+            </section>
+            <section id="technical-analysis" class="widget">
+            </section>
+            <section id="fundamental-data" class="widget">
+            </section>
+        </main>
+    </div>
+
+    <div th:insert="sidebar_admin :: admin_sidebar_fragment"></div>
+    <div th:include="sidebar_script_admin :: sidebar_script_fragment"></div>
 </body>
 <template id="symbol-info-template">
     <!-- TradingView Widget BEGIN -->
     <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
-                async>
-                    {
-                        "symbol": "NASDAQ:AAPL",
-                            "width": "100%",
-                                "locale": "en",
-                                    "colorTheme": "dark",
-                                        "isTransparent": true
-                    }
-                </script>
+            async>
+                {
+                    "symbol": "NASDAQ:AAPL",
+                        "width": "100%",
+                            "locale": "en",
+                                "colorTheme": "dark",
+                                    "isTransparent": true
+                }
+            </script>
     </div>
     <!-- TradingView Widget END -->
 </template>
@@ -47,16 +49,16 @@
     <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript"
-                src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
-                    {
-                        "width": "100%",
-                            "height": "100%",
-                                "colorTheme": "dark",
-                                    "isTransparent": true,
-                                        "symbol": "NASDAQ:AAPL",
-                                            "locale": "en"
-                    }
-                </script>
+            src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
+                {
+                    "width": "100%",
+                        "height": "100%",
+                            "colorTheme": "dark",
+                                "isTransparent": true,
+                                    "symbol": "NASDAQ:AAPL",
+                                        "locale": "en"
+                }
+            </script>
     </div>
     <!-- TradingView Widget END -->
 </template>
@@ -65,17 +67,17 @@
     <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js"
-                async>
-                    {
-                        "colorTheme": "dark",
-                            "isTransparent": true,
-                                    "displayMode": "adaptive",
-                                        "width": "100%",
-                                            "height": "100%",
-                                                "symbol": "NASDAQ:AAPL",
-                                                    "locale": "en"
-                    }
-                </script>
+            async>
+                {
+                    "colorTheme": "dark",
+                        "isTransparent": true,
+                            "displayMode": "adaptive",
+                                "width": "100%",
+                                    "height": "100%",
+                                        "symbol": "NASDAQ:AAPL",
+                                            "locale": "en"
+                }
+            </script>
     </div>
     <!-- TradingView Widget END -->
 </template>
@@ -84,19 +86,19 @@
     <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript"
-                src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-                    {
-                        "interval": "15m",
-                            "width": "100%",
-                                "isTransparent": true,
-                                    "height": "100%",
-                                        "symbol": "NASDAQ:AAPL",
-                                            "showIntervalTabs": true,
-                                                "displayMode": "single",
-                                                    "locale": "en",
-                                                        "colorTheme": "dark"
-                    }
-                </script>
+            src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                {
+                    "interval": "15m",
+                        "width": "100%",
+                            "isTransparent": true,
+                                "height": "100%",
+                                    "symbol": "NASDAQ:AAPL",
+                                        "showIntervalTabs": true,
+                                            "displayMode": "single",
+                                                "locale": "en",
+                                                    "colorTheme": "dark"
+                }
+            </script>
     </div>
     <!-- TradingView Widget END -->
 </template>
@@ -105,68 +107,69 @@
     <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
-                async>
-                    {
-                        "feedMode": "symbol",
-                            "symbol": "NASDAQ:AAPL",
-                                "colorTheme": "dark",
-                                    "isTransparent": true,
-                                        "displayMode": "regular",
-                                            "width": "100%",
-                                                "height": "100%",
-                                                    "locale": "en"
-                    }
-                </script>
+            async>
+                {
+                    "feedMode": "symbol",
+                        "symbol": "NASDAQ:AAPL",
+                            "colorTheme": "dark",
+                                "isTransparent": true,
+                                    "displayMode": "regular",
+                                        "width": "100%",
+                                            "height": "100%",
+                                                "locale": "en"
+                }
+            </script>
     </div>
     <!-- TradingView Widget END -->
 </template>
 <script>
-        function getQueryParam(param) {
-            let urlSearchParams = new URLSearchParams(window.location.search);
-            console.log(urlSearchParams)
-            return urlSearchParams.get(param);
-        }
-        function readSymbolFromQueryString() {
-            return getQueryParam('tvwidgetsymbol');
-        }
+    function getQueryParam(param) {
+        let urlSearchParams = new URLSearchParams(window.location.search);
+        console.log(urlSearchParams)
+        return urlSearchParams.get(param);
+    }
+    function readSymbolFromQueryString() {
+        return getQueryParam('tvwidgetsymbol');
+    }
 
-        function cloneTemplateInto(templateId, targetId, rewrites) {
-            const tmpl = document.querySelector(`#${templateId}`);
-            if (!tmpl) return;
-            const target = document.querySelector(`#${targetId}`);
-            if (!target) return;
-            target.innerText = '';
-            const clone = tmpl.content.cloneNode(true);
-            if (rewrites) {
-                const script = clone.querySelector('script');
-                script.textContent = rewrites(script.textContent);
-            }
-            target.appendChild(clone);
+    function cloneTemplateInto(templateId, targetId, rewrites) {
+        const tmpl = document.querySelector(`#${templateId}`);
+        if (!tmpl) return;
+        const target = document.querySelector(`#${targetId}`);
+        if (!target) return;
+        target.innerText = '';
+        const clone = tmpl.content.cloneNode(true);
+        if (rewrites) {
+            const script = clone.querySelector('script');
+            script.textContent = rewrites(script.textContent);
         }
-        function currentPage() {
-            const l = document.location;
-            if (!l) return;
-            if (l.origin && l.pathname) return l.origin + l.pathname;
-            return l.href;
-        }
-        cloneTemplateInto('ticker-tape-widget-template', 'ticker-tape', function (scriptContent) {
-            const currentPageUrl = currentPage();
-            if (!currentPageUrl) return scriptContent;
-            return scriptContent.replace('"largeChartUrl": "#"', `"largeChartUrl": "${currentPageUrl}"`)
+        target.appendChild(clone);
+    }
+    function currentPage() {
+        const l = document.location;
+        if (!l) return;
+        if (l.origin && l.pathname) return l.origin + l.pathname;
+        return l.href;
+    }
+    cloneTemplateInto('ticker-tape-widget-template', 'ticker-tape', function (scriptContent) {
+        const currentPageUrl = currentPage();
+        if (!currentPageUrl) return scriptContent;
+        return scriptContent.replace('"largeChartUrl": "#"', `"largeChartUrl": "${currentPageUrl}"`)
+    });
+    const symbol = readSymbolFromQueryString() || 'NASDAQ:AAPL';
+    function setSymbol(scriptContent) {
+        return scriptContent.replace(/"symbol": "([^"]*)"/g, () => {
+            return `"symbol": "${symbol}"`;
         });
-        const symbol = readSymbolFromQueryString() || 'NASDAQ:AAPL';
-        function setSymbol(scriptContent) {
-            return scriptContent.replace(/"symbol": "([^"]*)"/g, () => {
-                return `"symbol": "${symbol}"`;
-            });
-        }
-        cloneTemplateInto('symbol-info-template', 'symbol-info', setSymbol);
-        cloneTemplateInto('company-profile-template', 'company-profile', setSymbol);
-        cloneTemplateInto('fundamental-data-template', 'fundamental-data', setSymbol);
-        cloneTemplateInto('technical-analysis-template', 'technical-analysis', setSymbol);
-        cloneTemplateInto('top-stories-template', 'top-stories', setSymbol);
-        if (symbol) {
-            document.title = `Stock Details - ${symbol}`;
-        }
-    </script>
+    }
+    cloneTemplateInto('symbol-info-template', 'symbol-info', setSymbol);
+    cloneTemplateInto('company-profile-template', 'company-profile', setSymbol);
+    cloneTemplateInto('fundamental-data-template', 'fundamental-data', setSymbol);
+    cloneTemplateInto('technical-analysis-template', 'technical-analysis', setSymbol);
+    cloneTemplateInto('top-stories-template', 'top-stories', setSymbol);
+    if (symbol) {
+        document.title = `Stock Details - ${symbol}`;
+    }
+</script>
+
 </html>

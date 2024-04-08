@@ -14,12 +14,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/login", "/register", "/resources/**", "/homepage/**")
-                .permitAll()
+                .antMatchers("/login", "/register", "/resources/**", "/homepage/**").permitAll()
                 .antMatchers("/auth/dashboard/admin/**").hasAuthority("ADMIN")
-                .antMatchers("/auth/dashboard/user/**").hasAuthority("USER")
-                .antMatchers("/**").authenticated()
-                .and().csrf().ignoringAntMatchers("/homepage")
+                .antMatchers("/auth/dashboard/user/**").authenticated()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -33,9 +31,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     }
                     response.sendRedirect("/auth/dashboard/user");
                 })
+                .permitAll()
                 .and()
                 .logout()
                 .permitAll();
     }
-
 }

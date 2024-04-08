@@ -103,9 +103,8 @@
         <a href="#contact">Contact</a>
         <a class="active" th:href="@{'/login}">Login</a>
         <div class="search-container" autocomplete="off">
-            <form action="/homepage" method="post" autocomplete="off">
+            <form method="post" autocomplete="off">
                 <input type="text" placeholder="Search.." name="search" autocomplete="off">
-                <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
     </div>
@@ -198,29 +197,6 @@
             </script>
     </div>
     <!-- TradingView Widget END -->
-    <h1>Données JSON</h1>
-    <table border="1">
-        <tr>
-            <th>Symbol</th>
-            <th>Instrument Name</th>
-            <th>Exchange</th>
-            <th>MIC Code</th>
-            <th>Exchange Timezone</th>
-            <th>Instrument Type</th>
-            <th>Country</th>
-            <th>Currency</th>
-        </tr>
-        <tr th:each="item : ${dataList}">
-            <td th:text="${item.symbol}"></td>
-            <td th:text="${item.instrument_name}"></td>
-            <td th:text="${item.exchange}"></td>
-            <td th:text="${item.mic_code}"></td>
-            <td th:text="${item.exchange_timezone}"></td>
-            <td th:text="${item.instrument_type}"></td>
-            <td th:text="${item.country}"></td>
-            <td th:text="${item.currency}"></td>
-        </tr>
-    </table>
 </body>
 
 </html>
