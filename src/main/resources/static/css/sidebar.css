@@ -102,7 +102,7 @@
     border-width: 0px;
     box-shadow: 0 0 30px var(--third-color);
     border-radius: 35px;
-    height: 35px;
+    height: 30px;
     overflow: hidden;
   }
 
@@ -110,7 +110,7 @@
     color: var(--third-color);
   }
 
-  input {
+  .searchBar {
     text-align: center;
   }
 
